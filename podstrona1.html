@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nazwa podstrony</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+    </style>
+    <script>
+        //------------- TABLICA LUDZIE ----------------
+        const osoby = {
+            "Neil_Armstrong": ["Neil", "Armstrong", "05.07.1930 - 25.07.2012", "Amerykański astronauta, dowódca misji Apollo 11. 21 lipca 1969 jako pierwszy człowiek stanął na Księżycu.","<img src='czlowiek.jpg'>"],
+            "Osoba2": ["imie_osoby_2", "nazwisko_osoby_2", "daty_osoby_2", "opis osoby 2","<img src='czlowiek.jpg'>"],
+            "Osoba3": ["imie_osoby_3", "nazwisko_osoby_3", "daty_osoby_3", "opis osoby 3","<img src='czlowiek.jpg'>"],
+            "Osoba4": ["imie_osoby_4", "nazwisko_osoby_4", "daty_osoby_4", "opis osoby 4","<img src='czlowiek.jpg'>"]
+        };
+        //------------- FUNKCJA LUDZIE ----------------
+        function wyswietlOsobe(imie) {
+            let dane;
+            switch (imie) {
+                case "Neil_Armstrong":
+                    dane = osoby.Neil_Armstrong;
+                    break;
+                case "Osoba2":
+                    dane = osoby.Osoba2;
+                    break;
+                case "Osoba3":
+                    dane = osoby.Osoba3;
+                    break;
+                case "Osoba4":
+                    dane = osoby.Osoba4;
+                    break;
+                default:
+                    dane = ["Nieznana", "Osoba", "", "Brak informacji",""];
+            }
+
+            document.getElementById('imie').innerHTML = dane[0] + " ";
+            document.getElementById('nazwisko').innerHTML = dane[1] + " ";
+            document.getElementById('data').innerHTML = dane[2] + " ";
+            document.getElementById('opis').innerHTML = dane[3] + " ";
+            document.getElementById('zdjecie').innerHTML = dane[4] + " ";
+        }
+        //------------- TABLICA ZWIERZĘTA ------------------
+        const zwierzeta = {
+            "Zwierze1": ["Nazwa1", "Gatunek1", "opis1","<img src='czlowiek.jpg'>"],
+            "Zwierze2": ["Nazwa2", "Gatunek2", "opis2","<img src='czlowiek.jpg'>"],
+            "Zwierze3": ["Nazwa3", "Gatunek3", "opis3","<img src='czlowiek.jpg'>"],
+            "Zwierze4": ["Nazwa4", "Gatunek4", "opis4","<img src='czlowiek.jpg'>"]
+        };
+        //-------------- FUNKCJA ZWIERZĘTA -----------------
+        function wyswietlZwierze(nazwa_zwierzecia) {
+            let dane;
+            switch (nazwa_zwierzecia) {
+                case "Zwierze1":
+                    dane = zwierzeta.Zwierze1;
+                    break;
+                case "Zwierze2":
+                    dane = zwierzeta.Zwierze2;
+                    break;
+                case "Zwierze3":
+                    dane = zwierzeta.Zwierze3;
+                    break;
+                case "Zwierze4":
+                    dane = zwierzeta.Zwierze4;
+                    break;
+                default:
+                    dane = ["Nieznana", "Nieznany", "Brak informacji",""];
+            }
+
+            document.getElementById('nazwa_zwierzecia').innerHTML = dane[0] + " ";
+            document.getElementById('gatunek_zwierzecia').innerHTML = dane[1] + " ";
+            document.getElementById('opis_zwierzecia').innerHTML = dane[2] + " ";
+            document.getElementById('zdjecie_zwierzecia').innerHTML = dane[3] + " ";
+        }
+        //--------------- TREŚĆ STRONY LUDZIE -------------------
+        function ludzie() {
+            document.getElementById('nazwa').innerHTML = ">> Ludzie";
+
+            document.getElementById('main').innerHTML = `
+                <div id="left" class="w-3/5 bg-blue-200 flex">
+                    <div class="w-1/2 bg-blue-400">
+                        <div id="zdjecie"></div>
+                    </div>
+                    <div class="w-1/2 bg-green-400">
+                        <div id="imie"></div>
+                        <div id="nazwisko"></div>
+                        <div id="data"></div>
+                        <div id="opis"></div>
+                    </div>
+                </div>
+                <div id="right" class="w-2/5 bg-green-200 flex flex-wrap">
+                    <button class="w-[100px] h-[100px] bg-cover m-4 border border-blue-700 rounded" style="background-image: url('czlowiek.jpg');" onclick="wyswietlOsobe('Neil_Armstrong')"></button>
+                    <button class="w-[100px] h-[100px] bg-cover m-4 border border-blue-700 rounded" style="background-image: url('czlowiek.jpg');" onclick="wyswietlOsobe('Osoba2')"></button>
+                    <button class="w-[100px] h-[100px] bg-cover m-4 border border-blue-700 rounded" style="background-image: url('czlowiek.jpg');" onclick="wyswietlOsobe('Osoba3')"></button>
+                    <button class="w-[100px] h-[100px] bg-cover m-4 border border-blue-700 rounded" style="background-image: url('czlowiek.jpg');" onclick="wyswietlOsobe('Osoba4')"></button>
+                </div>
+            `;
+
+            wyswietlOsobe('Neil_Armstrong');
+        }
+        //--------------- TREŚĆ STRONY ZWIERZĘTA ------------------
+        function zwierze() {
+            document.getElementById('nazwa').innerHTML = ">> Zwierzęta";
+
+            document.getElementById('main').innerHTML = `
+                <div id="left" class="w-3/5 bg-blue-200 flex">
+                    <div class="w-1/2 bg-blue-400">
+                        <div id="zdjecie_zwierzecia"></div>
+                    </div>
+                    <div class="w-1/2 bg-green-400">
+                        <div id="nazwa_zwierzecia"></div>
+                        <div id="gatunek_zwierzecia"></div>
+                        <div id="opis_zwierzecia"></div>
+                    </div>
+                </div>
+                <div id="right" class="w-2/5 bg-green-200 flex flex-wrap">
+                    <button class="w-[100px] h-[100px] bg-cover m-4 border border-blue-700 rounded" style="background-image: url('czlowiek.jpg');" onclick="wyswietlZwierze('Zwierze1')"></button>
+                    <button class="w-[100px] h-[100px] bg-cover m-4 border border-blue-700 rounded" style="background-image: url('czlowiek.jpg');" onclick="wyswietlZwierze('Zwierze2')"></button>
+                    <button class="w-[100px] h-[100px] bg-cover m-4 border border-blue-700 rounded" style="background-image: url('czlowiek.jpg');" onclick="wyswietlZwierze('Zwierze3')"></button>
+                    <button class="w-[100px] h-[100px] bg-cover m-4 border border-blue-700 rounded" style="background-image: url('czlowiek.jpg');" onclick="wyswietlZwierze('Zwierze4')"></button>
+                </div>
+            `;
+
+            wyswietlZwierze('Zwierze1');
+        }
+        //-------------- URUCHOMIA FUNCKJE RAZEM Z ZAŁADOWANIEM STRONY ------------------
+        window.onload = function() {
+            ludzie();
+        };
+    </script>
+</head>
+<body>
+    <!---------- NAVIGATION ---------->
+    <nav class="bg-black text-white  flex items-center justify-between px-6 py-4 sticky top-0 z-50 w-full">
+        <a href="index.html">Wróć</a>   
+    </nav>
+    <!---------- HEADER ------------->
+    <header id="header" class="relative bg-black bg-cover bg-top text-white flex items-center flex-col justify-center text-center h-screen" style="background-image: url('space-sunrise-2.jpg');">
+        <h1>Nazwa podstrony</h1>
+        <p>Opis podstrony</p>
+    </header>
+    <!--------- NAV WEWNĘTRZNA ----------->
+    <section id="nav2" class="bg-black text-white  flex px-6 py-4 w-full">
+        <a href="index.html">Strona główna</a> >> <a href="podstrona1.html">Nazwa podstrony</a><div id="nazwa"></div>
+    </section>
+    <!--------- PRZYCISKI ------------>
+    <section id="buttons" class="w-full px-6 py-4">
+        <button class="border border-black rounded px-2" onclick="ludzie()">Ludzie</button>
+        <button class="border border-black rounded px-2" onclick="zwierze()">Zwierzęta</button>
+    </section>
+    <!--------- SEKCJA GŁÓWNA ---------->
+    <section id="main" class="h-screen w-full flex">
+    </section>
+    <!---------- STOPKA ---------->
+    <footer id="info" class="text-white bg-cover bg-bottom h-[300px]" style="background-image: url('spacesunset.jpg');">
+        <h2>Informacje dodatkowe</h2>
+        <p>Autorki:</p>
+        <div class="flex items-center justify-between px-6 py-4 w-full">
+            <ul>
+                <li>Aleksandra Gwóźdź</li>
+                <li>Urszula Ziarnek</li>
+                <li>Paulina Ziółkowska</li>
+                <li>Sasha Yablonska</li>
+            </ul>
+            <div>
+                <p>Źródła:</p>
+                <ul>
+                    <li>Zdjęcia:</li>
+                    <li>Informacje:</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    </body>
+</html>
